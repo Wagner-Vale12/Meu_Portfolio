@@ -3,7 +3,7 @@ import { SocialShowcase } from './PortfolioHero';
 
 const resumeDocumentPaths = {
   complete: {
-    PT: '/curriculos/Curr%C3%ADculo%20-%20Full%20Stack%20Developer%20(React%20%20Node.js%20%20AI).pdf',
+    PT: '/curriculos/Curriculo_Wagner.pdf',
     EN: '/curriculos/Curriculo_Wagner_EN.pdf'
   },
   custom: {

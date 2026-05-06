@@ -268,7 +268,7 @@ export const portfolioChatMock = {
       github: 'https://github.com/Wagner-Vale12',
       linkedin: 'https://www.linkedin.com/in/wagner12/',
       instagram: 'https://www.instagram.com/wagner12jesus/',
-      resume: '/curriculos/Curr%C3%ADculo%20-%20Full%20Stack%20Developer%20(React%20%20Node.js%20%20AI).pdf'
+      resume: '/curriculos/Curriculo_Wagner.pdf'
     }
   },
   EN: {
