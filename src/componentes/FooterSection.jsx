@@ -3,7 +3,7 @@ import { SocialShowcase } from './PortfolioHero';
 
 const resumeDocumentPaths = {
   complete: {
-    PT: '/curriculos/Curriculo_Wagner.pdf',
+    PT: '/curriculos/Curr%C3%ADculo%20-%20Full%20Stack%20Developer%20(React%20%20Node.js%20%20AI).pdf',
     EN: '/curriculos/Curriculo_Wagner_EN.pdf'
   },
   custom: {
@@ -165,7 +165,7 @@ export default function FooterSection({
 }) {
   const [isResumeCardOpen, setIsResumeCardOpen] = useState(false);
   const [selectedResumeLanguage, setSelectedResumeLanguage] = useState('PT');
-  const [selectedResumeMode, setSelectedResumeMode] = useState('complete');
+  const [selectedResumeMode, setSelectedResumeMode] = useState(null);
   const [selectedCustomSections, setSelectedCustomSections] = useState(defaultCustomSections);
   const [selectedCustomOptions, setSelectedCustomOptions] = useState(defaultCustomOptions);
 
@@ -184,10 +184,16 @@ export default function FooterSection({
   }, [footer.customOptions, selectedCustomSections]);
 
   const selectedResumeUrl = useMemo(() => {
+    if (!selectedResumeMode) {
+      return '#';
+    }
+
     return resumeDocumentPaths[selectedResumeMode]?.[selectedResumeLanguage] ?? '#';
   }, [selectedResumeLanguage, selectedResumeMode]);
 
   const hasCustomSectionsSelected = selectedCustomSections.length > 0;
+  const canOpenResume =
+    selectedResumeMode === 'complete' || (selectedResumeMode === 'custom' && hasCustomSectionsSelected);
 
   function handleToggleCustomSection(sectionKey) {
     setSelectedCustomSections((current) =>
@@ -205,6 +211,10 @@ export default function FooterSection({
   }
 
   function handleOpenResume() {
+    if (!canOpenResume) {
+      return;
+    }
+
     if (selectedResumeMode === 'custom' && !hasCustomSectionsSelected) {
       return;
     }
@@ -284,6 +294,7 @@ export default function FooterSection({
                       selectedResumeLanguage === language.code ? 'is-active' : ''
                     }`}
                     onClick={() => setSelectedResumeLanguage(language.code)}
+                    aria-pressed={selectedResumeLanguage === language.code}
                   >
                     <span
                       className={`language-flag-inline fi fi-${language.flagCode}`}
@@ -306,7 +317,11 @@ export default function FooterSection({
                       selectedResumeMode === modeKey ? 'is-active' : ''
                     }`}
                     onClick={() => setSelectedResumeMode(modeKey)}
+                    aria-pressed={selectedResumeMode === modeKey}
                   >
+                    <span className="resume-mode-selected-icon" aria-hidden="true">
+                      ✓
+                    </span>
                     <strong>{mode.title}</strong>
                     <span>{mode.description}</span>
                   </button>
@@ -363,9 +378,9 @@ export default function FooterSection({
 
             <button
               type="button"
-              className="resume-preview-button"
+              className={`resume-preview-button ${canOpenResume ? 'is-ready' : ''}`}
               onClick={handleOpenResume}
-              disabled={selectedResumeMode === 'custom' && !hasCustomSectionsSelected}
+              disabled={!canOpenResume}
             >
               {footer.resumePreviewLabel}
             </button>
