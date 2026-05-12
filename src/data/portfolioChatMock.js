@@ -1,7 +1,7 @@
 export const portfolioChatMock = {
   PT: {
     profile: {
-      name: 'Wagner Vale',
+      name: 'Wagner Jesus',
       role: 'Desenvolvedor de Software Pleno',
       headline: 'Software Engineer Pleno | React • Next.js • Node.js | AI & Automation',
       focus: 'Desenvolvimento front-end e construção de interfaces escaláveis para plataformas de Inteligência Artificial',
@@ -273,7 +273,7 @@ export const portfolioChatMock = {
   },
   EN: {
     profile: {
-      name: 'Wagner Vale',
+      name: 'Wagner Jesus',
       role: 'Mid-Level Software Developer',
       headline: 'Mid-Level Software Engineer | React • Next.js • Node.js | AI & Automation',
       focus: 'Front-end development and scalable interfaces for Artificial Intelligence platforms',

@@ -1,4 +1,4 @@
-# Wagner Vale — Portfólio Pessoal
+# Wagner Jesus — Portfólio Pessoal
 
 Portfólio desenvolvido para apresentar minha trajetória profissional, experiências, projetos, certificações, formação, idiomas e currículo em uma interface moderna, responsiva e bilíngue.
 
@@ -124,7 +124,7 @@ Deploy realizado na Vercel.
 
 ## Autor
 
-Wagner Vale
+Wagner Jesus
 
 - GitHub: [Wagner-Vale12](https://github.com/Wagner-Vale12)
 - LinkedIn: [wagner12](https://www.linkedin.com/in/wagner12)
